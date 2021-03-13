@@ -8,13 +8,15 @@ $categories = index("SELECT * FROM category_tb");
 $writers = index("SELECT * FROM writer_tb");
 
 if (isset($_POST["submit"])) {
-    if (addBook($_POST) > 0) {
+    if (editBook($_POST) > 0) {
         echo "<script>
-        alert('Book edited successfully')
+        alert('Book edited successfully');
+        document.location.href = 'book.php';
         </script>";
     } else {
         echo "<script>
-        alert('Error!! Check your connection')
+        alert('Error!! Check your connection');
+        document.location.href = 'book.php';
         </script>";
     }
 }
@@ -29,6 +31,7 @@ if (isset($_POST["submit"])) {
                     <h5 class="card-title mb-3">Create Book</h5>
                     <input type="hidden" name="id" value="<?php echo $book["id"] ?>">
                     <input type="hidden" name="oldimg" value="<?php echo $book["img"] ?>">
+
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" name="name" id="name" value="<?php echo $book["name"] ?>" required>
@@ -69,7 +72,10 @@ if (isset($_POST["submit"])) {
 
                     <div class="mb-3">
                         <label for="img" class="form-label">Image</label>
-                        <input type="file" class="form-control" id="img" name="img" required> 
+                        <div class="card">          
+                        <img class="card-img-top" src="<?php echo $book["img"] ?>"  width="50" height="300">
+                        </div>
+                        <input type="file" class="form-control" id="img" name="img"> 
                     </div>
 
                     <button class="btn btn-primary" type="submit" name="submit">Create</button>

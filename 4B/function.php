@@ -105,7 +105,7 @@ function upload()
         return false;
     }
 
-    move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
+    move_uploaded_file($tmpName, '' . $namaFileBaru);
 
     return $namaFileBaru;
 }
@@ -137,6 +137,7 @@ function editBook($data)
                 WHERE id = $id";
 
     mysqli_query($conn, $query);
+
     return mysqli_affected_rows($conn);
 }
 
@@ -148,7 +149,7 @@ function editCate($data)
 
     $query = "UPDATE category_tb SET 
                 name = '$nama'
-                WHERE id = '$id'";
+                WHERE id = $id";
 
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
