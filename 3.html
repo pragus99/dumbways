@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pattern</title>
+</head>
+
+<body>
+    <pre id="out"></pre>
+</body>
+
+</html>
+
+<script>
+    function print(s) { document.getElementById('out').innerHTML += s; }
+    function println(s) { document.getElementById('out').innerHTML += s + '\n'; }
+
+
+function size(angka){
+    if (angka % 2 == 1) {
+        for (i = 0; i < angka; i++) {
+            for (j = 0; j < angka; j++) {
+                print("=");
+            }for (k = 0; k < angka ; k++) {
+                print("*");
+            }
+            println("");
+        }
+    } else {
+        print("number must odd");
+    }
+}
+size(9);
+</script>
