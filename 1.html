@@ -1,0 +1,17 @@
+<script>
+function cetak(angka) {
+    let x = 0;
+    while (x < 3) {
+    let chara       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let charaLength = chara.length;
+    let hasil           = '';
+    for ( let i = 0; i < 28; i++ ) {
+          hasil += chara.charAt(Math.floor(Math.random() * charaLength));
+     }
+     console.log(hasil);
+     x++;
+    }
+}
+
+cetak(5)
+</script>
